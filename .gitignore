@@ -4,3 +4,5 @@ install_magento*
 *.tar*
 magento-sample
 magento-sample*
+magento/var/cache/
+magento/var/session/
