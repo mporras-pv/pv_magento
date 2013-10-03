@@ -1,8 +1,8 @@
-
 index.html
 install_magento*
-*.tar*
-magento-sample
-magento-sample*
+*.tar.gz
+magento-sample-data*
 magento/var/cache/
 magento/var/session/
+magento/media/catalog/product/cache/
+
