@@ -11,28 +11,23 @@ class Excellence_Pay_Model_Pay
       $data = new Varien_Object($data);
     }
     $info = $this->getInfoInstance();
-    $info->setCheckNo($data->getCheckNo())
-    ->setCheckDate($data->getCheckDate());
+    $info->setCheckNo($data->getCheckNo())->setCheckDate($data->getCheckDate());
     return $this;
   }
 
   public function validate() {
     parent::validate();
-
-    $info = $this->getInfoInstance();
-
-    $no = $info->getCheckNo();
-    $date = $info->getCheckDate();
-    if(empty($no) || empty($date)) {
-      $errorCode = 'invalid_data';
-      $errorMsg = $this->_getHelper()->__('Check No and Date are required fields');
-    }
-
-    if($errorMsg) {
-      Mage::throwException($errorMsg);
-    }
-
     return $this;
   }
+
+public function authorize(Varien_Object $payment, $amount) {
+            $data = $payment->getData();
+        Mage::getUrl("direcpay/arithmetic/checkout");
+    }
+
+  public function getOrderPlaceRedirectUrl()
+{
+      return 'https://www.pinvalidda.com/opencms/opencms/system/modules/com.entretenimientoenlawebcolombia/templates/homePage'; //Replace url with your own
+}
 }
 ?>
